@@ -1,14 +1,12 @@
 const express = require('express')
 
-module.exports = function(server){
-    //API Router
+module.exports = function(server) {
+
+    // API Routes
     const router = express.Router()
+    server.use('/api', router)
 
-    //quando chamda /api, usará o const router
-    server.use('/api',router)
-
-    //TODO Router
-
+    // TODO Routes
     const todoService = require('../api/todo/todoService')
-    todoService.register(router,'/todos')
+    todoService.register(router, '/todos')
 }
